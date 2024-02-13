@@ -1,11 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const About = () => {
+  const buttonVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { delay: 0.5, duration: 0.5 } },
+  };
+
   return (
     <Container>
-      <Title>About Kitten Kaboom</Title>
+      <Title style={{ fontWeight: 900, fontFamily: "Nunito, sans-serif" }}>
+        About Kitten Kaboom
+      </Title>
       <Content>
         Kitten Kaboom is an exciting online single-player card game where you
         embark on a journey to defuse exploding kittens while collecting
@@ -16,10 +29,34 @@ const About = () => {
         <motion.img
           src="/images/kitten_kaboom_logo.png"
           alt="Kitten Kaboom Logo"
-          whileHover={{ scale: 1.4 }}
+          whileHover={{ scale: 1.2 }}
           transition={{ duration: 0.3 }}
         />
       </ImageContainer>
+      <Link to="/game">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          variants={buttonVariants}
+          initial="hidden"
+          animate="visible"
+          style={{
+            background: "#ff6f61",
+            border: "none",
+            borderRadius: "8px",
+            padding: "10px 20px",
+            outline: "none",
+            cursor: "pointer",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "20px",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            marginTop: "30px",
+          }}
+        >
+          <motion.span variants={textVariants}>Let's Play!</motion.span>
+        </motion.button>
+      </Link>
     </Container>
   );
 };
@@ -54,8 +91,10 @@ const Title = styled.h1`
 const Content = styled.p`
   font-size: 18px;
   line-height: 1.6;
-  color: #555;
+  color: #000000;
   font-weight: 600;
+  font-family: "Nunito", sans-serif;
+
   text-align: center;
   max-width: 600px;
   margin-bottom: 30px;
