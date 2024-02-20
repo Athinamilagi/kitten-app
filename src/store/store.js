@@ -1,4 +1,8 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  createSlice,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const usersSlice = createSlice({
@@ -11,31 +15,42 @@ const usersSlice = createSlice({
         score: action.payload.score || 0,
       });
     },
-    deleteUser(state, action) {
-      const userIdToDelete = action.payload.name;
-      return state.filter((user) => user.name !== userIdToDelete);
-    },
     updateUser(state, action) {
       const { name, score } = action.payload;
       const userToUpdate = state.find((user) => user.name === name);
       if (userToUpdate) {
-        Object.assign(userToUpdate, { name, score });
+        userToUpdate.score += score; // Update score
       }
+    },
+    setLeaderboard(state, action) {
+      return action.payload; // Set leaderboard data
     },
   },
 });
 
-export const { addUser, deleteUser, updateUser } = usersSlice.actions;
+export const { addUser, updateUser, setLeaderboard } = usersSlice.actions;
 
 export const sendUserData = (userData) => async (dispatch) => {
   try {
     await axios.post("http://localhost:8080/addUser", userData);
     console.log("User data sent successfully.");
-    dispatch(addUser(userData));
+    dispatch(addUser(userData)); // Add user to store
   } catch (error) {
     console.error("Error sending user data:", error);
   }
 };
+
+export const fetchLeaderboardData = createAsyncThunk(
+  "usersDetails/fetchLeaderboardData",
+  async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/leaderboard");
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
 
 const store = configureStore({
   reducer: {

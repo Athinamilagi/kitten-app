@@ -6,7 +6,6 @@ import Modal from "./Modal";
 
 const Header = () => {
   const locat = useLocation();
-  // console.log(locat);
   const [headerBgColor, setHeaderBgColor] = useState("#001d72");
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);

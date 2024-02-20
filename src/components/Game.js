@@ -32,6 +32,7 @@ const Game = () => {
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
+    setDeck(shuffleArray(initialDeck));
     const welcomeTimer = setTimeout(() => {
       setShowWelcomeMessage(false);
     }, 3000);
@@ -66,6 +67,16 @@ const Game = () => {
       if (revealedCards.length === initialDeck.length - 2) {
         showMessagePopup("Congratulations! You won!");
         setShowNameForm(true);
+
+        // Dispatch action to add/update user's score
+        const existingUser = users.find((user) => user.name === playerName);
+        if (existingUser) {
+          dispatch(
+            updateUser({ name: playerName, score: existingUser.score + 1 })
+          );
+        } else {
+          dispatch(addUser({ name: playerName, score: 1 }));
+        }
       }
     }
   };
