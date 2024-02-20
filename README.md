@@ -1,52 +1,51 @@
-# Leaderboard Application
+# Kitten Kaboom Card Game
 
 ## Overview
-This leaderboard application allows users to view a list of users ranked by their scores. Users can add or delete entries from the leaderboard. The application utilizes a backend server built with Go and a frontend client built with React.
+Kitten Kaboom is an exciting card game where players aim to defuse exploding kittens while navigating through various challenges. The game features adorable cat-themed cards and engaging gameplay mechanics that promise hours of fun with friends and family.
 
 ## Features
-- Display a leaderboard with user names and scores.
-- Add a new user with a name and score.
-- Delete a user from the leaderboard.
-- Frontend built with React for dynamic UI.
-- Backend server built with Go to handle data operations and serve API requests.
+- Play with a deck of beautifully illustrated cat-themed cards.
+- Defuse exploding kittens to avoid elimination.
+- Utilize various power-ups and abilities to gain an advantage.
+- Enjoy a unique and entertaining gaming experience suitable for all ages.
 
 ## Technologies Used
 - Frontend:
   - React.js
-  - Axios for HTTP requests
-  - Styled Components for styling
+  - styled-components
+  - framer-motion
+  - HTML
 
 - Backend:
-  - Go
-  - Redis for data storage
-  - Gorilla Mux for routing
-  - CORS for handling cross-origin requests
+  - GoLang
+  - Axios
+  - Redis (for data storage)
 
 ## Installation and Setup
 ### Frontend:
-1. Clone the repository:
-2. Navigate to the frontend directory:
-3. Install dependencies:
-4. Start the development server:
+1. Clone the repository: `git clone https://github.com/Athinamilagi/kitten-app.git`
+2. Navigate to the frontend directory: `cd kitten-app`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
 
 ### Backend:
-1. Ensure Go is installed on your system.
+1. Ensure GoLang is installed on your system.
 2. Install Redis and start the server.
-3. Clone the repository:
-4. Navigate to the backend directory:
-5. Install dependencies:
-6. Build and run the server:
+3. Clone the repository: `git clone https://github.com/Athinamilagi/kitten-app.git`
+4. Navigate to the backend directory: `cd /kitten-app/src/redis-atlas`
+5. Install dependencies: `go mod tidy`
+6. Build and run the server: `go run main.go`
 
 ## Usage
-- Access the application in your web browser at `http://localhost:3000`.
-- Use the interface to view the leaderboard, add users, and delete users.
-- Ensure the backend server is running to handle API requests.
+- Access the Kitten Kaboom card game in your web browser at `http://localhost:3000`.
+- Follow the game instructions to defuse exploding kittens and emerge victorious.
+- Enjoy hours of entertainment with friends and family as you play Kitten Kaboom!
+
+## Game Description
+In Kitten Kaboom, players embark on a thrilling adventure filled with adorable cats and unexpected surprises. Each player must strategically navigate through the deck of cards, defusing exploding kittens while collecting points and power-ups along the way. With engaging gameplay and charming visuals, Kitten Kaboom promises a memorable gaming experience for all.
 
 ## Known Issues
-- There are no known issues at this time.
+- There are currently no known issues with Kitten Kaboom.
 
 ## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
+Contributions to Kitten Kaboom are welcome! Please fork the repository and create a pull request with your enhancements or bug fixes.
