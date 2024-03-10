@@ -41,7 +41,7 @@ const Header = () => {
     <>
       <Container style={{ backgroundColor: headerBgColor }}>
         <Logo to="/">
-          <img src="/images/logo.png" alt="App_logo" />
+          <img src="/images/Logo.png" alt="App_logo" />
           <h1 style={{ color: "#f7559a", textDecoration: "none" }}>
             Kitten Kaboom
           </h1>
